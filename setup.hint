@@ -1,0 +1,5 @@
+category: Tcl
+requires: libgcc1 libjpeg7 libpng12 libtiff5 libX11_6 zlib0 tcl tcl-tk
+sdesc: "Tk image format handler extensions"
+ldesc: "This package provides a collection of format handlers for the
+Tk photo image type, and a new image type, pixmaps."

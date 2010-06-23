@@ -1,0 +1,35 @@
+ORIG_PN="tkimg"
+inherit tcl
+
+DESCRIPTION="Tk image format libraries"
+HOMEPAGE="http://tkimg.sourceforge.net/"
+#SRC_URI="mirror://sourceforge/tkimg/tkimg${PV%+*}.tar.bz2"
+#SRC_DIR=${ORIG_PN}${PV%+*}
+SRC_URI="mirror://gentoo/${ORIG_PN}-${PV}.tar.bz2"
+
+PATCH_URI="
+	mirror://portage/dev-tcltk/tkimg/files/tkimg-${PV}-systemlibs.patch
+	mirror://portage/dev-tcltk/tkimg/files/tkimg-${PV}-tests.patch
+	1.3-aclocal.patch
+"
+
+DISTCLEANFILES="aclocal.m4 tclconfig/tcl.m4 */aclocal.m4 */*/aclocal.m4"
+
+src_compile() {
+	ACLOCAL_FLAGS="-I ${S}/tclconfig"
+	for c in $(find ${S} -name configure.in)
+	do
+		cd ${c%/configure.in}
+		cygautoreconf
+	done
+
+	cd ${B}
+	cygconf --includedir=${TCL_INCLUDEDIR}
+	cygmake -j1
+}
+
+
+src_install() {
+	cd ${B}
+	cyginstall INSTALL_ROOT=${D}
+}

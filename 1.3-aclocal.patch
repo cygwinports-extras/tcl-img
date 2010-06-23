@@ -1,0 +1,38 @@
+--- origsrc/tkimg-1.3.20081202/tclconfig/img.m4	2008-10-23 11:09:37.000000000 -0500
++++ src/tkimg-1.3.20081202/tclconfig/img.m4	2010-06-22 21:43:40.786269700 -0500
+@@ -2,7 +2,7 @@
+ # m4 configure macros specific to Img.
+ #
+ 
+-AC_DEFUN(IMG_SRCPATH, [
++AC_DEFUN([IMG_SRCPATH], [
+ #--------------------------------------------------------------------
+ # Compute an absolute path to the src directory of module '$1' so
+ # that we are able to find its headers even if they are not installed.
+@@ -30,7 +30,7 @@ AC_SUBST($1_BUILD_PATH)
+ # Add here whatever m4 macros you want to define for your package
+ #
+ 
+-AC_DEFUN(TEA_CONFIG_SUBDIR, [
++AC_DEFUN([TEA_CONFIG_SUBDIR], [
+     tea_config_dir="$1"
+     tea_config_arguments="$2"
+     subdirs="$subdirs $tea_config_dir"
+@@ -107,7 +107,7 @@ AC_DEFUN(TEA_CONFIG_SUBDIR, [
+ ])
+ 
+ 
+-AC_DEFUN(TEA_CONFIG_COLLECT, [
++AC_DEFUN([TEA_CONFIG_COLLECT], [
+   tea_sub_configure_args=
+   tea_prev=
+   for tea_arg in $ac_configure_args; do
+@@ -148,7 +148,7 @@ AC_DEFUN(TEA_CONFIG_COLLECT, [
+ #
+ #------------------------------------------------------------------------
+ 
+-AC_DEFUN(TEA_EXPORT_CONFIG, [
++AC_DEFUN([TEA_EXPORT_CONFIG], [
+     #--------------------------------------------------------------------
+     # These are for $1Config.sh
+     #--------------------------------------------------------------------

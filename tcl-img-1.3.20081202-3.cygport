@@ -24,7 +24,7 @@ src_compile() {
 	done
 
 	cd ${B}
-	cygconf --includedir=${TCL_INCLUDEDIR}
+	cygconf
 	cygmake -j1
 }
 

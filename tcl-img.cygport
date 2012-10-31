@@ -1,0 +1,43 @@
+inherit tcl
+
+NAME="tcl-img"
+VERSION=1.4
+RELEASE=1
+CATEGORY="Tcl"
+SUMMARY="Tcl/Tk image format handler extensions"
+DESCRIPTION="This package provides a collection of format handlers for the
+Tk photo image type, and a new image type, pixmaps."
+HOMEPAGE="http://tkimg.sourceforge.net/"
+SRC_URI="mirror://sourceforge/tkimg/tkimg${VERSION}.tar.bz2"
+SRC_DIR="tkimg${VERSION}"
+
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-zlib.patch
+	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-zlib127-gzgetc_fix.patch
+	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-jpg.patch
+	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-libpng.patch
+	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-libpng15.patch
+	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-libtiff.patch
+	1.3-aclocal.patch
+"
+
+DISTCLEANFILES="aclocal.m4 tclconfig/tcl.m4 */aclocal.m4 */*/aclocal.m4"
+
+src_compile() {
+#	ACLOCAL_FLAGS="-I ${S}/tclconfig"
+#	for c in $(find ${S} -name configure.in)
+#	do
+#		cd ${c%/configure.in}
+#		cygautoreconf
+#	done
+
+	cd ${B}
+	cygconf
+	cygmake -j1
+}
+
+
+src_install() {
+	cd ${B}
+	cyginstall INSTALL_ROOT=${D}
+}

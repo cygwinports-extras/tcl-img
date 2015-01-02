@@ -2,7 +2,7 @@ inherit tcl
 
 NAME="tcl-img"
 VERSION=1.4
-RELEASE=1
+RELEASE=2
 CATEGORY="Tcl"
 SUMMARY="Tcl/Tk image format handler extensions"
 DESCRIPTION="This package provides a collection of format handlers for the
@@ -17,7 +17,10 @@ PATCH_URI="
 	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-jpg.patch
 	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-libpng.patch
 	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-libpng15.patch
+	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-libpng16.patch
+	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-libpng-deprecated.patch
 	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-libtiff.patch
+	http://pkgs.fedoraproject.org/cgit/tkimg.git/plain/tkimg-libtiff4.patch
 	1.3-aclocal.patch
 "
 
